@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     public function questions() 
     {
         return $this->hasMany(Question::class);
@@ -41,6 +42,14 @@ class User extends Authenticatable
     public function answers()
     {
         return $this->hasMany(Answer::class);
+    }
+
+    public function getAvatarAttribute()
+    {
+        $email = $this->email;
+        $size = 32;
+
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
     }
 
 }

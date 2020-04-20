@@ -17,6 +17,49 @@
 
                 <div class="card-body">
                     {!! $question->body_html !!}
+                    <div class="float-right">
+                        <span class="text-muted">Answered {{ $question->created_at }}</span>
+                        <div class="media mt-2">
+                            <a href="{{ $question->user->url }}">
+                                <img src="{{ $question->user->avatar }}" alt="">
+                            </a>
+                            <div class="media-body mt-1">
+                                <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h2>{{ $question->answers_count . " " . str_plural('Answer', $question->answers_count) }}</h2>
+                        <hr>
+                        @foreach ($question->answers as $answer)
+                            <div class="media">
+                                <div class="media-body">
+                                    {!! $answer->body_html !!}
+                                    <div class="float-right">
+                                        <span class="text-muted">Answered {{ $answer->created_at }}</span>
+                                        <div class="media mt-2">
+                                            <a href="{{ $answer->user->url }}">
+                                                <img src="{{ $answer->user->avatar }}" alt="">
+                                            </a>
+                                            <div class="media-body mt-1">
+                                                <a href="{{ $answer->user->url }}">{{ $answer->user->name }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <hr>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
