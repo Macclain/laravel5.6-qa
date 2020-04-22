@@ -6,7 +6,7 @@
                     <h2>{{ $answersCount . " " . str_plural('Answer', $answersCount) }}</h2>
                     <hr>
 
-                    @include ('layouts._messages');
+                    @include ('layouts._messages')
                     
                     @foreach ($answers as $answer)
                         <div class="media">
