@@ -66,7 +66,7 @@
                                         <img src="{{ $question->user->avatar }}" alt="">
                                     </a>
                                     <div class="media-body mt-1">
-                                        <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                                        <a class="ml-2" href="{{ $question->user->url }}">{{ $question->user->name }}</a>
                                     </div>
                                 </div>
                             </div>
