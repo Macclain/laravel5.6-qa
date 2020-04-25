@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="card-body">
-                    @include ('layouts._messages');
+                    @include ('layouts._messages')
                     @foreach ($questions as $question) 
                         <div class="media">
                             <div class="d-flex flex-column counters">
@@ -53,7 +53,7 @@ _count                                <div class="status {{ $question->status }}
                                     <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
                                     <small class="text-muted">{{ $question->created_date }}</small>
                                 </p>
-                                {{ str_limit($question->body, 250) }}
+                                <div class="excerpt">{{ $question->excerpt(350) }}</div>
                             </div>
                         </div>
                         <hr>

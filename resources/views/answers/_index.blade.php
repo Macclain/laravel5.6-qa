@@ -12,30 +12,11 @@
                         <div class="media">
 
                             <div class="d-flex flex-column vote-controls">
-                                <a title="This answer is useful" 
-                                    class="vote-up {{ auth::guest() ? 'off' : '' }}"
-                                    onclick="event.preventDefault(); document.getElementById('up-vote-answer-{{ $answer->id }}').submit();"
-                                    >
-                                    <i class="fas fa-caret-up fa-3x"></i>
-                                </a>
-                                <form id="up-vote-answer-{{ $answer->id }}" action="/answers/{{ $answer->id }}/vote" method="POST" style="display: none;">
-                                    @csrf
-                                    <input type="hidden" name="vote" value="1">
-                                </form>
-                                <span class="vote_count">{{ $answer->votes_count }}</span>
-                                <a title="This answer is not useful" 
-                                    class="vote-down {{ auth::guest() ? 'off' : '' }}"
-                                    onclick="event.preventDefault(); document.getElementById('down-vote-answer-{{ $answer->id }}').submit();"
-                                    >
-                                    <i class="fas fa-caret-down fa-3x"></i>
-                                </a>
-                                <form id="down-vote-answer-{{ $answer->id }}" action="/answers/{{ $answer->id }}/vote" method="POST" style="display: none;">
-                                    @csrf
-                                    <input type="hidden" name="vote" value="-1">
-                                </form>
+                                
                                 @include ('shared._vote', [
                                     'model' => $answer
                                 ])
+                                
                             </div>
 
                             <div class="media-body">
